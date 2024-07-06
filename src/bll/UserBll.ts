@@ -1,4 +1,5 @@
 import {getManager} from '../../config/connection';
+import { ObjectID } from 'mongodb';
 
 export class UserBll {
 
@@ -21,9 +22,9 @@ export class UserBll {
         }
     }
 
-    public async deleteUser(id) {
+    public async deleteUser(id: string) {
         try {
-            await getManager().collection('users').deleteOne( {"id" : id} );
+            return await getManager().collection('users').deleteOne( {"_id" : new ObjectID(id)} );
         } catch (err) { 
             console.log(err);
         }
