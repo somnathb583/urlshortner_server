@@ -41,7 +41,7 @@ export class URLBll {
             }
             const response = await getManager().collection('url').insertOne(data);
             const result = await this.getData(response.insertedId, 'url');
-            return `Your Short URL :-  http://localhost:3000/url/openURL/?id=${result.id}`
+            return `Your Short URL :-  https://urlshortner-server-zkbf.onrender.com/url/openURL/?id=${result.id}`
         } catch (e) {
             throw new Error(e);
         }
